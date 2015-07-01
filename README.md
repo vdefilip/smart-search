@@ -4,6 +4,16 @@ Smart-Search is a JavaScript library that perform fuzzy-search through a list of
 
 ##Install
 
+####Npm
+```javascript
+npm install smart-search
+```
+
+####Bower
+```javascript
+bower install smart-search
+```
+
 ####Browser
 ```javascript
 <script src="/path/to/smart-search.js"></script>
