@@ -1,0 +1,26 @@
+{
+  "name": "smart-search",
+  "description": "JavaScript library that perform fuzzy-search",
+  "version": "0.1.0",
+  "homepage": "https://github.com/vdefilip/smart-search",
+  "authors": [
+    { "name": "vdefilip", "email": "vdefilip@student.42.fr" }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vdefilip/smart-search.git"
+  },
+  "license": "MIT",
+  "main": "lib/smart-search.js",
+  "keywords": [
+    "fuzzy",
+    "search"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Makefile",
+    "test"
+  ]
+}

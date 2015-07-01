@@ -1,0 +1,27 @@
+{
+  // Enforcing
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "forin": true,
+  "newcap": true,
+  "noarg": true,
+  "undef": true,
+  "trailing": true,
+  "strict": true,
+
+  // Relaxing
+  "boss": true,
+  "eqnull": true,
+  "laxcomma": true,
+  "laxbreak": true,
+  "expr": true,
+
+  // Environments
+  "mocha": true,
+  "browser": true,
+  "node": true,
+
+  // Globals
+  "predef": []
+}
