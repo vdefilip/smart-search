@@ -12,11 +12,11 @@ var entries = [
 ];
 
 var entriesDetailled = [
-  { id: 0, name: { first: 'Robin', last: 'David' },     email: 'robin.david@gmail.com' },
-  { id: 1, name: { first: 'Loris', last: 'Francois' },  email: 'loris.francois@gmail.com' },
-  { id: 2, name: { first: 'Armand', last: 'Roy' },      email: 'armand.roy@live.com' },
-  { id: 3, name: { first: 'Mathias', last: 'Meunier' }, email: 'mathias.meunier@gmail.com' },
-  { id: 4, name: { first: 'Ruben', last: 'Bernard' },   email: 'ruben.bernard@yahoo.com' },
+  { id: 0, name: { first: 'Robin', Last: 'David' },     email: 'robin.david@gmail.com' },
+  { id: 1, name: { first: 'Loris', Last: 'Francois' },  email: 'loris.francois@gmail.com' },
+  { id: 2, name: { first: 'Armand', Last: 'Roy' },      email: 'armand.roy@live.com' },
+  { id: 3, name: { first: 'Mathias', Last: 'Meunier' }, email: 'mathias.meunier@gmail.com' },
+  { id: 4, name: { first: 'Ruben', Last: 'Bernard' },   email: 'ruben.bernard@yahoo.com' },
 ];
 
 var logResults = function (results) {
@@ -64,7 +64,7 @@ describe('smart-search', function () {
 
 	it ('pattern: simple', function () {
     var patterns = ['gmail'];
-    var fields = ['name', 'email'];
+    var fields = { name: true, email: true };
     var results = smartSearch(entries, patterns, fields);
     assert.equal(results.length, 3);
 		assert.equal(results[0].entry.id, 0);
@@ -74,7 +74,7 @@ describe('smart-search', function () {
 
   it ('pattern: multi', function () {
     var patterns = ['gmail', 'oi'];
-    var fields = ['name', 'email'];
+    var fields = { name: true, email: true };
     var results = smartSearch(entries, patterns, fields);
     assert.equal(results.length, 2);
     assert.equal(results[0].entry.id, 1);
@@ -84,21 +84,21 @@ describe('smart-search', function () {
 
   it ('pattern: not found', function () {
     var patterns = ['zy'];
-    var fields = ['name', 'email'];
+    var fields = { name: true, email: true };
     var results = smartSearch(entries, patterns, fields);
     assert.equal(results.length, 0);
   });
 
   it ('pattern: not in field', function () {
     var patterns = ['gmail'];
-    var fields = ['name'];
+    var fields = { name: true };
     var results = smartSearch(entries, patterns, fields);
     assert.equal(results.length, 0);
   });
 
   it ('pattern: with nested field', function () {
     var patterns = ['Roy'];
-    var fields = ['name.last'];
+    var fields = { name: { Last: true }};
     var results = smartSearch(entriesDetailled, patterns, fields);
     assert.equal(results.length, 1);
     assert.equal(results[0].entry.id, 2);
@@ -107,7 +107,7 @@ describe('smart-search', function () {
   it ('options: caseSensitive pass', function () {
     var patterns = ['Ruben'];
     var fields = ['name'];
-    var options = {caseSensitive: true};
+    var options = { caseSensitive: true };
     var results = smartSearch(entries, patterns, fields, options);
     assert.equal(results.length, 1);
     assert.equal(results[0].entry.id, 4);
@@ -115,7 +115,7 @@ describe('smart-search', function () {
 
   it ('options: caseSensitive fail', function () {
     var patterns = ['ruben'];
-    var fields = ['name'];
+    var fields = { name: true };
     var options = {caseSensitive: true};
     var results = smartSearch(entries, patterns, fields, options);
     assert.equal(results.length, 0);
@@ -123,7 +123,7 @@ describe('smart-search', function () {
 
   it ('options: fieldMatching pass', function () {
     var patterns = ['ruben.'];
-    var fields = ['name', 'email'];
+    var fields = { name: true, email: true };
     var options = {caseSensitive: true, FieldMatching: true};
     var results = smartSearch(entries, patterns, fields, options);
     assert.equal(results.length, 1);
@@ -132,7 +132,7 @@ describe('smart-search', function () {
 
   it ('options: fieldMatching fail', function () {
     var patterns = ['Ruben.'];
-    var fields = ['name', 'email'];
+    var fields = { name: true, email: true };
     var options = {caseSensitive: true, FieldMatching: true};
     var results = smartSearch(entries, patterns, fields, options);
     assert.equal(results.length, 0);
@@ -140,7 +140,7 @@ describe('smart-search', function () {
 
   it ('options: maxInsertions', function () {
     var patterns = ['rd'];
-    var fields = ['name', 'email'];
+    var fields = { name: true, email: true };
     var options = {maxInsertions: 0};
     var results = smartSearch(entries, patterns, fields, options);
     assert.equal(results.length, 1);
