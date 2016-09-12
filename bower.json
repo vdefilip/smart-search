@@ -1,7 +1,7 @@
 {
   "name": "smart-search",
   "description": "JavaScript library that perform fuzzy-search",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/vdefilip/smart-search",
   "authors": [
     { "name": "vdefilip", "email": "vdefilip@student.42.fr" }
