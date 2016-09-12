@@ -59,7 +59,7 @@ var entries = [
 ];
 
 var patterns = ['gmail', 'oi'];
-var fields = ['name', 'email'];
+var fields = { name: true, email: true };
 
 var results = smartSearch(entries, patterns, fields);
 
@@ -118,7 +118,7 @@ List of objects's properties where the **_patterns_** are searched.
 
 The property's value should be a `String`. If not, the property is ignored.
 
-Nested properties could be specified with a dot character. 
+Nested properties could be specified with a dot character.
 
 >Example:
 >```javascript
@@ -130,7 +130,7 @@ var entries = [
   },
   {...}
 ];
-var results = smartSearch(entries, patterns, ['name.last', 'email']);
+var results = smartSearch(entries, patterns, { name: { last: true }, email: true });
 ```
 
 ---
@@ -147,7 +147,7 @@ The options available are :
 
     By default an entry match if all patterns match through the **entire entry**.
 
-    With `fieldMatching = true`, an entry match if all patterns match in at least **one field**. 
+    With `fieldMatching = true`, an entry match if all patterns match in at least **one field**.
 
 - **maxInsertions** `Integer` *(default:-1)*
 
@@ -221,6 +221,8 @@ The properties of each returned object are the following:
 ---
 
 ##Release History
+
+v0.2.0 - Sept, 2016
 
 v0.1.0 - July, 2015
 
