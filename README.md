@@ -1,31 +1,31 @@
-#Smart-Search
+# Smart-Search
 
 Smart-Search is a JavaScript library that perform fuzzy-search through a list of entries.
 
-##Install
+## Install
 
-####Npm
+#### Npm
 ```javascript
 npm install smart-search
 ```
 
-####Bower
+#### Bower
 ```javascript
 bower install smart-search
 ```
 
-####Browser
+#### Browser
 ```javascript
 <script src="/path/to/smart-search.js"></script>
 ```
 
-##Usage
+## Usage
 
 ```javascript
 var results = smartSearch(entries, patterns, fields, options);
 ```
 
-####Parameters
+#### Parameters
 
 - **entries** `Array<Object>`
 
@@ -45,10 +45,10 @@ var results = smartSearch(entries, patterns, fields, options);
 
 
 
-####Return `Array<Object>`
+#### Return `Array<Object>`
 The return is an array of objects containing the **_entries_** that have matched. ([see details](#Return))
 
-##Example
+## Example
 ```javascript
 var entries = [
   { id:0, name:'Robin David',     email:'robin.david@gmail.com' },
@@ -73,7 +73,7 @@ will display :
 { id: 0, name: 'R<b>o</b>b<b>i</b>n David', email: 'r<b>o</b>b<b>i</b>n.david@<b>gmail</b>.com' }
 </pre>
 
-##Details
+## Details
 ####Parameters
 ---
 ##### entries `Array<Object>`
@@ -134,7 +134,7 @@ var results = smartSearch(entries, patterns, { name: { last: true }, email: true
 ```
 
 ---
-##### options `Object`
+##### Options `Object`
 
 An optional fourth parameter allow user to customize search behavior.
 
@@ -220,13 +220,13 @@ The properties of each returned object are the following:
 
 ---
 
-##Release History
+## Release History
 
 v0.2.0 - Sept, 2016
 
 v0.1.0 - July, 2015
 
-##License
+## License
 
 MIT
 
