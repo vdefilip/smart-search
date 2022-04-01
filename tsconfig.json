@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "forceConsistentCasingInFileNames": true,
+        "sourceRoot": "./src",
+        "isolatedModules": true,
+        "lib": ["es6"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noEmit": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "./lib",
+        "preserveConstEnums": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "strict": true,
+        "target": "es6",
+    },
+    "file": "./src/smart-search.ts",
+    "include": ["**/*.ts"],
+    "exclude": ["node_modules", "lib", "test"],
+}

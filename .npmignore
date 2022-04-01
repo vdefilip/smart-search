@@ -1,5 +1,11 @@
 **/.*
-node_modules
-bower_components
+bower_components/
+node_modules/
+.vscode/
+test/
+src/
 Makefile
-test
+bower.json
+tsconfig.json
+rollup.config.js
+package-lock.json
